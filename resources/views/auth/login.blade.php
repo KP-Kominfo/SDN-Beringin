@@ -5,9 +5,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <div class="flex justify-center mb-6">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Bringin 01" class="h-20">
-        </div>
+       
 
         <!-- Email Address -->
         <div>
