@@ -3,55 +3,56 @@
 @section('content')
     <section class="relative">
         {{-- Carousel wrapper --}}
-        <div id="carousel" class="relative overflow-hidden w-full h-[calc(100dvh-98px)] sm:h-[calc(100dvh-154px)] ">
+        <div id="carousel-top" class="relative overflow-hidden w-full h-[calc(100dvh-98px)] sm:h-[calc(100dvh-154px)]">
             {{-- Slide 1 --}}
-            <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
+            <div class="carousel-item-top absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
                 <img src="{{ asset('images/image1.jpg') }}" class="w-full h-full object-cover" alt="Slide 1">
-                <div
-                    class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4">Selamat Datang di SDN Bringin 01</h2>
-                    <p class="mb-4">Mewujudkan generasi cerdas, kreatif, dan berkarakter.</p>
-                    <a href="/profil" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Lihat
-                        Profil Sekolah</a>
+                <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Selamat Datang di SDN Bringin 01</h2>
+                    <p class="mb-4 text-lg md:text-xl">Mewujudkan generasi cerdas, kreatif, dan berkarakter.</p>
+                    <a href="/profil" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+                        Lihat Profil Sekolah
+                    </a>
                 </div>
             </div>
-
+        
             {{-- Slide 2 --}}
-            <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+            <div class="carousel-item-top absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
                 <img src="{{ asset('images/image2.jpg') }}" class="w-full h-full object-cover" alt="Slide 2">
-                <div
-                    class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4">Pendidikan Berkualitas</h2>
-                    <p class="mb-4">Fasilitas dan guru yang kompeten mendukung pembelajaran.</p>
-                    <a href="/fasilitas"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Lihat Fasilitas</a>
+                <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Pendidikan Berkualitas</h2>
+                    <p class="mb-4 text-lg md:text-xl">Fasilitas dan guru yang kompeten mendukung pembelajaran.</p>
+                    <a href="/fasilitas" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+                        Lihat Fasilitas
+                    </a>
                 </div>
             </div>
         </div>
+        
     </section>
 
 
     <section class="max-w-7xl mx-auto px-4 py-12">
         <div class="mb-10 mx-auto text-center">
-          <h1 class="text-2xl md:text-4xl font-bold  text-gray-800 border-b-2 border-gray-300 inline-block pb-2">
+          <h1 class="text-2xl md:text-4xl font-bold text-gray-800 border-b-2 border-gray-300 inline-block pb-2">
             Sambutan Kepala Sekolah
           </h1>
         </div>
       
-        <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <!-- Foto Kepala Sekolah -->
-          <div class="w-[300px] h-[300px] sm:w-full sm:max-h-[500px] rounded-full overflow-hidden shadow-lg ring-1 ring-gray-300 transition-transform hover:scale-105 duration-300">
-            <img
-              class="w-full h-full object-cover object-center"
-              src="{{ asset('images/kepsek.jpeg') }}"
-              alt="Kepala Sekolah SDN Bringin 01"
-            />
+          <div class="flex justify-center">
+            <div class="w-[300px] h-[300px]  sm:w-2/3 sm:h-2/3 rounded-md overflow-hidden shadow-lg ring-1 ring-gray-300 transition-transform hover:scale-105 duration-300">
+              <img
+                class="w-full h-full object-cover object-center"
+                src="{{ asset('images/kepsek.jpeg') }}"
+                alt="Kepala Sekolah SDN Bringin 01"
+              />
+            </div>
           </div>
-          
-          
       
           <!-- Sambutan -->
-          <div class="bg-gray-100 border border-gray-200 p-6 rounded-lg shadow-md text-gray-800 text-justify  leading-relaxed space-y-4">
+          <div class="bg-gray-100 border border-gray-200 p-6 rounded-lg shadow-md text-gray-800 text-justify sm:text-lg leading-relaxed space-y-4">
             <p>
               Assalamualaikum warohmatullahi wabarokatuh.
               <br><br>
@@ -77,6 +78,7 @@
           </div>
         </div>
       </section>
+      
 
       {{-- sejarah sd --}}
 
@@ -89,7 +91,7 @@
       
         <div class="flex flex-col md:flex-row gap-8">
           <!-- Kolom Kiri -->
-          <div class="bg-gray-100 p-6 border border-gray-200 rounded-lg shadow-md text-gray-800 text-justify leading-relaxed space-y-4 flex-1">
+          <div class="bg-gray-100 p-6 border border-gray-200 rounded-lg shadow-md text-gray-800 text-justify sm:text-lg  leading-relaxed space-y-4 flex-1">
             <p>
               Secara administrasi SD NEGERI BRINGIN 01 beralamat di Jalan Raya Gondoriyo, Kelurahan Bringin, Kecamatan Ngaliyan, Kota Semarang, Provinsi Jawa Tengah. Kode POS 50189. Dengan posisi geografis Lintang : -7 Bujur : 110
             </p>
@@ -140,25 +142,92 @@
           
         </div>
       </section>
+
+
+      <section class="relative">
+        <div class="mb-10 mx-auto text-center">
+            <h1 class="text-2xl md:text-4xl font-bold text-center text-gray-800 border-b-2 border-gray-300 inline-block pb-2">
+                KABAR SD NEGERI BRINGIN 01
+            </h1>
+          </div>
+        {{-- Carousel wrapper --}}
+        <div id="carousel-bottom" class="relative overflow-hidden w-full h-[calc(100dvh-98px)] sm:h-[calc(100dvh-154px)]">
+            {{-- Slide 1 --}}
+            <div class="carousel-item-bottom absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
+                <img src="{{ asset('images/kabar4.jpg') }}" class="w-full h-full object-cover" alt="Slide 1">
+                <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">TIM PASKIBRA SD NEGERI BERINGIN 01 TAHUN 2019</h2>
+                    <p class="mb-4 text-lg md:text-xl">Tim Paskibra SD Negeri Beringin 01 Tahun 2019 Berfoto Bersama Setelah Melaksanakan Tugas</p>
+                </div>
+            </div>
+        
+            {{-- Slide 2 --}}
+            <div class="carousel-item-bottom absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+                <img src="{{ asset('images/kabar1.jpg') }}" class="w-full h-full object-cover" alt="Slide 2">
+                <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">PERINGATAN HARI KARTINI TAHUN 2018</h2>
+                    <p class="mb-4 text-lg md:text-xl">SD Negeri Beringin Memperingati Hari Kartini Dengan Semarak.</p>
+                </div>
+            </div>
+        
+            {{-- Slide 3 --}}
+            <div class="carousel-item-bottom absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+                <img src="{{ asset('images/kabar2.jpg') }}" class="w-full h-full object-cover" alt="Slide 3">
+                <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">SERAGAM LURIK SD NEGERI BERINGIN 01</h2>
+                    <p class="mb-4 text-lg md:text-xl">Pendidik dan Tenaga Kerja Kependidikan SD Negeri Beringin 01 Berfoto Bersama Menggunakan Seragam Lurik.</p>
+                </div>
+            </div>
+        
+            {{-- Slide 4 --}}
+            <div class="carousel-item-bottom absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+                <img src="{{ asset('images/kabar3.jpg') }}" class="w-full h-full object-cover" alt="Slide 4">
+                <div class="absolute inset-0 bg-black/35 flex flex-col items-center justify-center text-white text-center px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">KARNAVAL KOTA SEMARANG TAHUN 2018</h2>
+                    <p class="mb-4 text-lg md:text-xl">SD Negeri Beringin 01 Ikut Serta Dalam Karnaval yang Diselenggarakan Pemerintah Kota Semarang Tahun 2018.</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
       
       
 @endsection
 
 
 @section('scripts')
-    <script>
-        // Simple JavaScript Carousel
-        const slides = document.querySelectorAll('.carousel-item');
-        let current = 0;
+<script>
+    // Carousel Atas
+    const carouselTop = document.querySelector('#carousel-top');
+    const slidesTop = carouselTop.querySelectorAll('.carousel-item-top');
+    let currentTop = 0;
 
-        setInterval(() => {
-            slides[current].classList.remove('opacity-100', 'z-10');
-            slides[current].classList.add('opacity-0', 'z-0');
+    setInterval(() => {
+        slidesTop[currentTop].classList.remove('opacity-100', 'z-10');
+        slidesTop[currentTop].classList.add('opacity-0', 'z-0');
 
-            current = (current + 1) % slides.length;
+        currentTop = (currentTop + 1) % slidesTop.length;
 
-            slides[current].classList.remove('opacity-0', 'z-0');
-            slides[current].classList.add('opacity-100', 'z-10');
-        }, 5000); // 5 detik per slide
-    </script>
+        slidesTop[currentTop].classList.remove('opacity-0', 'z-0');
+        slidesTop[currentTop].classList.add('opacity-100', 'z-10');
+    }, 5000); // 5 detik per slide
+</script>
+
+<script>
+    // Carousel Bawah
+    const carouselBottom = document.querySelector('#carousel-bottom');
+    const slidesBottom = carouselBottom.querySelectorAll('.carousel-item-bottom');
+    let currentBottom = 0;
+
+    setInterval(() => {
+        slidesBottom[currentBottom].classList.remove('opacity-100', 'z-10');
+        slidesBottom[currentBottom].classList.add('opacity-0', 'z-0');
+
+        currentBottom = (currentBottom + 1) % slidesBottom.length;
+
+        slidesBottom[currentBottom].classList.remove('opacity-0', 'z-0');
+        slidesBottom[currentBottom].classList.add('opacity-100', 'z-10');
+    }, 5000);
+</script>
+
 @endsection
