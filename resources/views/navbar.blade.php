@@ -65,23 +65,31 @@
     </div>
 
 
-    <div class="bg-blue-400 shadow-lg">
+    <div class="bg-[#819A91] shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           
-
-    
             <div class="flex justify-between items-center h-24">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Bringin 01" class="h-16 sm:h-20 ">
     
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden md:flex space-x-4 items-center">
                     <a href="/"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Beranda
                     </a>
-                    <a href="/profil"
-                        class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
-                        Profil
-                    </a>
+                    <div class="relative group">
+                        <button
+                            class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
+                            Profil
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 invisible group-hover:visible z-50">
+                            <a href="/profil/sekolah"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil Sekolah</a>
+                            <a href="/profil/guru"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil Guru</a>
+                            <a href="/profil/peserta-didik"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil Peserta Didik</a>
+                        </div>
+                    </div>
                     <a href="/berita"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Galeri
@@ -94,6 +102,27 @@
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Pengumuman
                     </a>
+                    <div class="relative group">
+                        <button
+                            class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
+                            Lomba
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 invisible group-hover:visible z-50">
+                            <a href="/lomba/mapsi"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">MAPSI</a>
+                            <a href="/lomba/literasi"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Literasi</a>
+                            <a href="/lomba/fls2n"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">FLS2N</a>
+                            <a href="/lomba/bahasa-jawa"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Bahasa Jawa</a>
+                            <a href="/lomba/berprestasi"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Siswa Berprestasi</a>
+                            <a href="/lomba/motivasi-inspiratif"
+                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Tulisan Motivasi & Inspiratif</a>
+                        </div>
+                    </div>
                     <a href="/galeri"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Pengaduan
@@ -117,26 +146,26 @@
         </div>
 
         {{-- Mobile Menu --}}
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-800 border-t border-blue-500/20">
+        <div id="mobile-menu" class="hidden md:hidden bg-[#EEEFE0] text-gray-500  duration-200 transition-all">
             <div class="px-4 py-3 space-y-1">
                 <a href="/"
-                    class="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
+                    class="block py-3 px-4 hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
                     Beranda
                 </a>
                 <a href="/profil"
-                    class="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
+                    class="block py-3 px-4 hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
                     Profil
                 </a>
                 <a href="/berita"
-                    class="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
+                    class="block py-3 px-4 hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
                     Berita
                 </a>
                 <a href="/galeri"
-                    class="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
+                    class="block py-3 px-4 hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
                     Galeri
                 </a>
                 <a href="/kontak"
-                    class="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
+                    class="block py-3 px-4 hover:bg-white/10 rounded-md transition-colors duration-200 font-medium">
                     Kontak
                 </a>
             </div>

@@ -32,7 +32,7 @@
     </section>
 
 
-    <section class="max-w-7xl mx-auto px-4 py-12">
+    <section class="max-w-7xl mx-auto px-4 py-12 ">
         <div class="mb-10 mx-auto text-center">
           <h1 class="text-2xl md:text-4xl font-bold text-gray-800 border-b-2 border-gray-300 inline-block pb-2">
             Sambutan Kepala Sekolah
@@ -42,7 +42,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <!-- Foto Kepala Sekolah -->
           <div class="flex justify-center">
-            <div class="w-[300px] h-[300px]  sm:w-2/3 sm:h-2/3 rounded-md overflow-hidden shadow-lg ring-1 ring-gray-300 transition-transform hover:scale-105 duration-300">
+            <div class="w-[300px] h-[300px]  sm:w-2/3 sm:h-2/3 rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-300 transition-transform hover:scale-105 duration-300">
               <img
                 class="w-full h-full object-cover object-center"
                 src="{{ asset('images/kepsek.jpeg') }}"
@@ -52,7 +52,7 @@
           </div>
       
           <!-- Sambutan -->
-          <div class="bg-gray-100 border border-gray-200 p-6 rounded-lg shadow-md text-gray-800 text-justify sm:text-lg leading-relaxed space-y-4">
+          <div class="bg-[#EEEFE0] border border-gray-200 p-6 rounded-lg shadow-md text-gray-800 text-justify sm:text-lg leading-relaxed space-y-4">
             <p>
               Assalamualaikum warohmatullahi wabarokatuh.
               <br><br>
@@ -136,7 +136,7 @@
             <!-- Kutipan -->
             <div class="bg-gray-100 rounded-md p-4 text-sm italic text-gray-700 shadow-sm border-l-4 border-gray-400">
               “SD NEGERI BRINGIN 01, BISA!!, "BERSIH, INDAH, SEHAT DAN ASRI”<br />
-              <span class="font-semibold text-gray-600">– SDN Bringin 01</span>
+              <span class="font-semibold text-gray-600">– SD Negeri Bringin 01</span>
             </div>
           </div>
           
