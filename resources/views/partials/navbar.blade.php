@@ -123,11 +123,11 @@
                                 class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Tulisan Motivasi & Inspiratif</a>
                         </div>
                     </div>
-                    <a href="/galeri"
+                    <a href={{ route('pengaduan.form') }}
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Pengaduan
                     </a>
-                    <a href="/kontak"
+                    <a href={{ route('kontak') }}
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Kontak
                     </a>
@@ -172,25 +172,3 @@
         </div>
     </div>
 </nav>
-
-
-@section('scripts')
-<script>
-    // Toggle mobile menu
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuToggle = document.getElementById('menu-toggle');
-
-        if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
-            mobileMenu.classList.add('hidden');
-        }
-    });
-</script>
-
-@endsection
