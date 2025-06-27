@@ -52,7 +52,7 @@ class DashboardController extends Controller
             ],
         ];
 
-        return view('home.dashboard', [
+        return view('pages.dashboard', [
             'carouselTopSlides' => $carouselTopSlides,
             'carouselBottomSlides' => $carouselBottomSlides,
         ]);

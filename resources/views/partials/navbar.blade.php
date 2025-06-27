@@ -65,7 +65,7 @@
     </div>
 
 
-    <div class="bg-[#819A91] shadow-lg">
+    <div class="bg-[#48A6A7] shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Bringin 01" class="h-16 sm:h-20 ">
@@ -98,7 +98,7 @@
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Berita
                     </a>
-                    <a href="/galeri"
+                    <a href="/pengumuman"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Pengumuman
                     </a>
