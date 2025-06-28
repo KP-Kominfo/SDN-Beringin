@@ -1,15 +1,16 @@
-// Toggle mobile menu
-document.getElementById('menu-toggle').addEventListener('click', function () {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.toggle('hidden');
-});
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', function (event) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuToggle = document.getElementById('menu-toggle');
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const close = document.getElementById('close-sidebar');
 
-    if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
-        mobileMenu.classList.add('hidden');
-    }
+    toggle.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebar.classList.add('translate-x-0');
+    });
+
+    close.addEventListener('click', () => {
+        sidebar.classList.remove('translate-x-0');
+        sidebar.classList.add('-translate-x-full');
+    });
 });

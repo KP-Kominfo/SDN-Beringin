@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Berita::class, 'admin_id');
     }
+
+    public function galeris()
+    {
+        return $this->hasMany(Galeri::class, 'admin_id');
+    }
 }

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\BeritaUserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
@@ -11,6 +13,8 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::get('/pengaduan', [PengaduanController::class, 'create'])->name('pengaduan.form');
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
+Route::get('/berita', [BeritaUserController::class, 'index'])->name('berita.index');
 
 
 
