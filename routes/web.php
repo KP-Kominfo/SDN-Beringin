@@ -19,14 +19,9 @@ Route::get('/berita', [BeritaUserController::class, 'index'])->name('berita.inde
 
 Route::prefix('lomba')->group(function () {
     Route::get('/', [LombaUserController::class, 'index'])->name('lomba.index');
-
-    Route::get('/mapsi', [LombaUserController::class, 'mapsi'])->name('lomba.mapsi');
-    Route::get('/literasi', [LombaUserController::class, 'literasi'])->name('lomba.literasi');
-    Route::get('/fls2n', [LombaUserController::class, 'fls2n'])->name('lomba.fls2n');
-    Route::get('/bahasa-jawa', [LombaUserController::class, 'bahasaJawa'])->name('lomba.bahasa-jawa');
-    Route::get('/berprestasi', [LombaUserController::class, 'berprestasi'])->name('lomba.berprestasi');
-    Route::get('/motivasi-inspiratif', [LombaUserController::class, 'motivasi'])->name('lomba.motivasi');
+    Route::get('/{kategori}', [LombaUserController::class, 'kategori'])->name('lomba.kategori');
 });
+
 
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {

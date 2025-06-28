@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-<section class="max-w-7xl mx-auto px-4 py-12">
+<div class="bg-gray-50 py-12">
+<section class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-2">Berita Sekolah</h2>
     <p class="text-center text-gray-600 mb-6">Ikuti perkembangan terbaru dan kegiatan menarik di SD Bringin</p>
   
@@ -15,5 +16,7 @@
       <!-- Tambahkan berita lainnya dengan struktur serupa -->
     </div>
   </section>
+
+</div>
 
   @endsection
