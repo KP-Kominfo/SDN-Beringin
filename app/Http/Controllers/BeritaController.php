@@ -16,12 +16,12 @@ class BeritaController extends Controller
 
     public function show(Berita $berita)
     {
-        return view('berita.show', compact('berita'));
+        return view('admin.berita.show', compact('berita'));
     }
 
     public function create()
     {
-        return view('berita.create');
+        return view('admin.berita.create');
     }
 
     public function store(Request $request)
@@ -38,14 +38,15 @@ class BeritaController extends Controller
             'judul' => $request->judul,
             'foto' => $path,
             'konten' => $request->konten,
+            'admin_id' => auth()->user()->id,
         ]);
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan.');
     }
 
     public function edit(Berita $berita)
     {
-        return view('berita.edit', compact('berita'));
+        return view('admin.berita.edit', compact('berita'));
     }
 
     public function update(Request $request, Berita $berita)
@@ -66,13 +67,13 @@ class BeritaController extends Controller
         $berita->konten = $request->konten;
         $berita->save();
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui.');
     }
 
     public function destroy(Berita $berita)
     {
         Storage::disk('public')->delete($berita->foto);
         $berita->delete();
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil dihapus.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus.');
     }
 }

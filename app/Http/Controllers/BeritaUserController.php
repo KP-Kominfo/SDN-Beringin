@@ -13,7 +13,7 @@ class BeritaUserController extends Controller
     public function index()
     {
         $beritas = Berita::all();
-        return view('pages.berita', compact('beritas'));
+        return view('pages.berita.index', compact('beritas'));
         
     }
 
@@ -38,7 +38,10 @@ class BeritaUserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id); 
+        
+        
+        return view('pages.berita.show', compact('berita'));
     }
 
     /**
