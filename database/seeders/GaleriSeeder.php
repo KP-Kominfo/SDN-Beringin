@@ -14,13 +14,13 @@ class GaleriSeeder extends Seeder
     public function run(): void
     {
         Galeri::create([
-           [
+           
                 'judul' => 'Upacara Wisuda Kelas 6',
                 'kategori' => 'Upacara',
                 'foto' => 'images/galeri/wisuda.jpg',
                 'tanggal' => '2025-01-15',
                 'admin_id' => 1
-           ],
+           
         ]);
     }
 }

@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Galeri::class, 'admin_id');
     }
+
+    public function lombas()
+    {
+        return $this->hasMany(Lomba::class, 'admin_id');
+    }
 }
