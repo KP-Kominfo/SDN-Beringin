@@ -8,6 +8,10 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LombaUserController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SchoolProfileController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -16,6 +20,7 @@ Route::get('/pengaduan', [PengaduanController::class, 'create'])->name('pengadua
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
 Route::get('/berita', [BeritaUserController::class, 'index'])->name('berita.index');
+Route::get('/berita/{berita}', [BeritaUserController::class, 'show'])->name('berita.detail.show');
 
 Route::prefix('lomba')->group(function () {
     Route::get('/', [LombaUserController::class, 'index'])->name('lomba.index');
@@ -37,6 +42,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/berita/{berita}/edit', [BeritaController::class, 'edit'])->name('admin.berita.edit');
     Route::put('/berita/{berita}', [BeritaController::class, 'update'])->name('admin.berita.update');
     Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('admin.berita.destroy');
+
+
+    Route::resource('/profil/guru', TeacherController::class)->names('profil-guru');
+    Route::get('/profil/sekolah', function () {
+        return view('dashboard');
+    });
+    Route::resource('/profil/siswa', StudentController::class)->names('profil-siswa');
+
 
     // Route::prefix('lomba')->middleware(['auth', 'role:admin'])->group(function () {
     //     Route::get('/admin', [LombaController::class, 'adminIndex'])->name('admin.lomba.index');

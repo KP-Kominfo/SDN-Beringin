@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('foto'); 
+            $table->string('foto')-> nullable(); 
             $table->text('konten');    
             $table->foreignId('admin_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
