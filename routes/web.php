@@ -5,6 +5,7 @@ use App\Http\Controllers\BeritaUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\LombaController;
 use App\Http\Controllers\LombaUserController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
@@ -43,6 +44,19 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::put('/berita/{berita}', [BeritaController::class, 'update'])->name('admin.berita.update');
     Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('admin.berita.destroy');
 
+    Route::get('/lomba', [LombaController::class, 'index'])->name('admin.lomba.index');
+    Route::get('/lomba/create', [LombaController::class, 'create'])->name('admin.lomba.create');
+    Route::post('/lomba', [LombaController::class, 'store'])->name('admin.lomba.store');
+    Route::get('/lomba/{lomba}/edit', [LombaController::class, 'edit'])->name('admin.lomba.edit');
+    Route::put('/lomba/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
+    Route::delete('/lomba/{lomba}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
+
+    // Route::get('/create', [LombaController::class, 'create'])->name('admin.lomba.create');
+    // Route::post('/', [LombaController::class, 'store'])->name('admin.lomba.store');
+    // Route::get('/{id}/edit', [LombaController::class, 'edit'])->name('admin.lomba.edit');
+    // Route::put('/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
+    // Route::delete('/{id}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
+
 
     Route::resource('/profil/guru', TeacherController::class)->names('profil-guru');
     Route::get('/profil/sekolah', function () {
@@ -51,14 +65,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::resource('/profil/siswa', StudentController::class)->names('profil-siswa');
 
 
-    // Route::prefix('lomba')->middleware(['auth', 'role:admin'])->group(function () {
-    //     Route::get('/admin', [LombaController::class, 'adminIndex'])->name('admin.lomba.index');
-    //     Route::get('/create', [LombaController::class, 'create'])->name('admin.lomba.create');
-    //     Route::post('/', [LombaController::class, 'store'])->name('admin.lomba.store');
-    //     Route::get('/{id}/edit', [LombaController::class, 'edit'])->name('admin.lomba.edit');
-    //     Route::put('/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
-    //     Route::delete('/{id}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
-    // });
+    
 });
 
 Route::middleware('auth')->group(function () {

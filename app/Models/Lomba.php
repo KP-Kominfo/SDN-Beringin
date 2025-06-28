@@ -14,8 +14,13 @@ class Lomba extends Model
         'prestasi',
         'tanggal',
         'deskripsi',
+        'gambar',
     ];
 
+    protected $casts = [
+        'tanggal' => 'date',
+    ];
+    
     public function admin()
     {
         return $this->belongsTo(User::class, 'admin_id');

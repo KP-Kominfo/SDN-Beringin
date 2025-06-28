@@ -24,8 +24,7 @@
 
                     <h3 class="font-bold text-lg mb-1 text-gray-900">{{ $berita->judul }}</h3>
                     <p class="text-sm text-gray-500 mb-3">{{ $berita->created_at->format('d F Y') }}</p>
-                    <p class="text-sm text-gray-600 mb-4">{{ Str::limit($berita->konten, 150) }}</p> {{-- Limit content to 150 characters --}}
-                    {{-- <a href="{{ route('berita.show', $berita->id) }}" class="inline-block bg-blue-500 text-white text-sm px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200">Baca Selengkapnya &rarr;</a> --}}
+                    <p class="text-sm text-gray-600 mb-4">{{ Str::limit($berita->konten, 150) }}</p> 
                 </div>
                 </a>
             @empty

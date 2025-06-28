@@ -10,8 +10,8 @@
             <div class="bg-white overflow-hidden shadow-2xl sm:rounded-2xl border border-gray-200">
                 <div class="p-8">
                     <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Edit Lomba</h3>
-                        <p class="text-gray-600">Perbarui informasi lomba</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Tambah Lomba Baru</h3>
+                        <p class="text-gray-600">Lengkapi informasi lomba untuk ditambahkan</p>
 
                         @if ($errors->any())
                             <div class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
@@ -25,16 +25,15 @@
                         @endif
                     </div>
 
-                    <form action="{{ route('admin.lomba.update', $lomba->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <form action="{{ route('admin.lomba.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                         @csrf
-                        @method('PUT')
 
                         <div class="grid grid-cols-1 gap-6">
                             <!-- Nama Lomba -->
                             <div>
                                 <label for="nama_lomba" class="block text-sm font-semibold text-gray-700 mb-2">Nama Lomba</label>
-                                <input type="text" id="nama_lomba" name="nama_lomba" value="{{ old('nama_lomba', $lomba->nama_lomba) }}" required
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
+                                <input type="text" id="nama_lomba" name="nama_lomba" value="{{ old('nama_lomba') }}" required
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition duration-300"
                                     placeholder="Masukkan nama lomba">
                             </div>
 
@@ -44,35 +43,35 @@
                                 <select id="kategori" name="kategori" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition">
                                     <option value="">-- Pilih Kategori --</option>
-                                    <option value="mapsi" {{ $lomba->kategori == 'mapsi' ? 'selected' : '' }}>MAPSI</option>
-                                    <option value="literasi" {{ $lomba->kategori == 'literasi' ? 'selected' : '' }}>Literasi</option>
-                                    <option value="fls2n" {{ $lomba->kategori == 'fls2n' ? 'selected' : '' }}>FLS2N</option>
-                                    <option value="bahasa-jawa" {{ $lomba->kategori == 'bahasa-jawa' ? 'selected' : '' }}>Bahasa Jawa</option>
-                                    <option value="berprestasi" {{ $lomba->kategori == 'berprestasi' ? 'selected' : '' }}>Siswa Berprestasi</option>
-                                    <option value="motivasi-inspiratif" {{ $lomba->kategori == 'motivasi-inspiratif' ? 'selected' : '' }}>Motivasi & Inspiratif</option>
+                                    <option value="mapsi">MAPSI</option>
+                                    <option value="literasi">Literasi</option>
+                                    <option value="fls2n">FLS2N</option>
+                                    <option value="bahasa-jawa">Bahasa Jawa</option>
+                                    <option value="berprestasi">Siswa Berprestasi</option>
+                                    <option value="motivasi-inspiratif">Motivasi & Inspiratif</option>
                                 </select>
                             </div>
 
                             <!-- Tingkat -->
                             <div>
                                 <label for="tingkat" class="block text-sm font-semibold text-gray-700 mb-2">Tingkat</label>
-                                <input type="text" id="tingkat" name="tingkat" value="{{ old('tingkat', $lomba->tingkat) }}" required
+                                <input type="text" id="tingkat" name="tingkat" value="{{ old('tingkat') }}" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
-                                    placeholder="Contoh: Kota, Provinsi, Nasional">
+                                    placeholder="Contoh: Tingkat Kota, Provinsi, Nasional">
                             </div>
 
                             <!-- Prestasi -->
                             <div>
                                 <label for="prestasi" class="block text-sm font-semibold text-gray-700 mb-2">Prestasi</label>
-                                <input type="text" id="prestasi" name="prestasi" value="{{ old('prestasi', $lomba->prestasi) }}" required
+                                <input type="text" id="prestasi" name="prestasi" value="{{ old('prestasi') }}" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
-                                    placeholder="Contoh: Juara 1">
+                                    placeholder="Contoh: Juara 1, Finalis, dll">
                             </div>
 
                             <!-- Tanggal -->
                             <div>
                                 <label for="tanggal" class="block text-sm font-semibold text-gray-700 mb-2">Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal', $lomba->tanggal ? $lomba->tanggal->format('Y-m-d') : '') }}" required
+                                <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition">
                             </div>
 
@@ -81,21 +80,15 @@
                                 <label for="deskripsi" class="block text-sm font-semibold text-gray-700 mb-2">Deskripsi</label>
                                 <textarea id="deskripsi" name="deskripsi" rows="5" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 resize-y transition"
-                                    placeholder="Tulis deskripsi lomba">{{ old('deskripsi', $lomba->deskripsi) }}</textarea>
+                                    placeholder="Tulis deskripsi kegiatan lomba...">{{ old('deskripsi') }}</textarea>
                             </div>
 
                             <!-- Gambar -->
                             <div>
                                 <label for="gambar" class="block text-sm font-semibold text-gray-700 mb-2">Gambar Lomba</label>
-                                @if ($lomba->gambar)
-                                    <div class="mb-3">
-                                        <p class="text-sm text-gray-600">Gambar Saat Ini:</p>
-                                        <img src="{{ asset('storage/' . $lomba->gambar) }}" alt="Gambar Lomba" class="w-48 h-auto rounded-lg shadow-md mt-2">
-                                    </div>
-                                @endif
                                 <input type="file" id="gambar" name="gambar" accept="image/*"
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
-                                <p class="text-sm text-gray-500 mt-1">Biarkan kosong jika tidak ingin mengganti gambar.</p>
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
+                                <p class="text-sm text-gray-500 mt-1">Ukuran maks: 2MB. Format: JPG, PNG.</p>
                             </div>
                         </div>
 
@@ -107,7 +100,7 @@
                             </a>
                             <button type="submit"
                                 class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                <i class="fas fa-save mr-2"></i> Simpan Perubahan
+                                <i class="fas fa-save mr-2"></i> Simpan Lomba
                             </button>
                         </div>
                     </form>
@@ -121,7 +114,7 @@
                     </div>
                     <div class="ml-3">
                         <p class="text-sm text-blue-700">
-                            <strong>Catatan:</strong> Foto tidak wajib diganti jika tidak ada perubahan.
+                            <strong>Catatan:</strong> Pastikan semua data yang dimasukkan sudah benar dan gambar memiliki format yang didukung (JPG, PNG) serta ukuran maksimal 2MB.
                         </p>
                     </div>
                 </div>
