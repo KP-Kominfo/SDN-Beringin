@@ -105,15 +105,15 @@
                                 class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil Peserta Didik</a>
                         </div>
                     </div>
-                    <a href="/galeri"
+                    <a href="{{ route('galeri.index') }}"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Galeri
                     </a>
-                    <a href="/berita"
+                    <a href="{{ route('berita.index') }}"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Berita
                     </a>
-                    <a href="/pengumuman"
+                    <a href="{{ route('pengumuman.index') }}"
                         class="text-white hover:text-blue-100 transition-colors duration-200 font-medium px-3 py-2 rounded-md hover:bg-white/10">
                         Pengumuman
                     </a>

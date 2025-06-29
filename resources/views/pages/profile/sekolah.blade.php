@@ -6,7 +6,12 @@
     <div class="container mx-auto px-4">
       <!-- Profil Sekolah -->
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">Profil SD Beringin</h2>
+        <div class="flex justify-center mb-4">
+
+            <h2
+                class="text-2xl md:text-4xl font-bold text-center text-gray-800 border-b-2 border-gray-300 inline-block pb-2">
+                Profil SD Beringin 01</h2>
+        </div>
         <p class="text-gray-600 mt-2">Mengenal lebih dekat visi, misi, dan nilai-nilai yang menjadi fondasi pendidikan di SD Beringin</p>
       </div>
   

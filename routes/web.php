@@ -8,6 +8,7 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\LombaUserController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
@@ -22,6 +23,7 @@ Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengadua
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
 Route::get('/berita', [BeritaUserController::class, 'index'])->name('berita.index');
 Route::get('/berita/{berita}', [BeritaUserController::class, 'show'])->name('berita.detail.show');
+Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
 
 Route::prefix('lomba')->group(function () {
     Route::get('/', [LombaUserController::class, 'index'])->name('lomba.index');
@@ -55,18 +57,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/lomba', [LombaController::class, 'store'])->name('admin.lomba.store');
     Route::get('/lomba/{lomba}/edit', [LombaController::class, 'edit'])->name('admin.lomba.edit');
     Route::put('/lomba/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
-    Route::delete('/lomba/{lomba}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
-
-    // Route::get('/create', [LombaController::class, 'create'])->name('admin.lomba.create');
-    // Route::post('/', [LombaController::class, 'store'])->name('admin.lomba.store');
-    // Route::get('/{id}/edit', [LombaController::class, 'edit'])->name('admin.lomba.edit');
-    // Route::put('/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
-    // Route::delete('/{id}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
-
-   
-
-
-    
+    Route::delete('/lomba/{lomba}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');  
 });
 
 Route::middleware('auth')->group(function () {
