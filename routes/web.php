@@ -14,6 +14,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SchoolProfileController;
 
+use App\Http\Controllers\TeacherUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -24,19 +25,25 @@ Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
 Route::get('/berita', [BeritaUserController::class, 'index'])->name('berita.index');
 Route::get('/berita/{berita}', [BeritaUserController::class, 'show'])->name('berita.detail.show');
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
-
 Route::prefix('lomba')->group(function () {
     Route::get('/', [LombaUserController::class, 'index'])->name('lomba.index');
     Route::get('/{kategori}', [LombaUserController::class, 'kategori'])->name('lomba.kategori');
 });
-
 Route::get('/profile/sekolah', function () {
     return view('pages.profile.sekolah');
 });
-Route::resource('/profile/guru', TeacherController::class)->names('profile-guru');
+Route::get('/profile/guru', [TeacherUserController::class, 'index'])->name('profile.guru.index');
 
 
 
+
+
+
+
+
+
+
+// ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
