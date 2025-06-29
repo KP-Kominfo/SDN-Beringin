@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title',  'Lomba ' . $judul . ' | SDN Bringin 01')
+
 @section('content')
   <div class="bg-gray-50 py-12">
     <section class="container mx-auto px-4">

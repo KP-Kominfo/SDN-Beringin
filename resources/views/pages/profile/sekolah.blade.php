@@ -1,4 +1,5 @@
 @extends('app')
+@section('title', 'Profile | SDN Bringin 01')
 
 
 @section('content')
