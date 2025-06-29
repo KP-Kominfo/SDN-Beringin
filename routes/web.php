@@ -28,6 +28,12 @@ Route::prefix('lomba')->group(function () {
     Route::get('/{kategori}', [LombaUserController::class, 'kategori'])->name('lomba.kategori');
 });
 
+Route::get('/profile/sekolah', function () {
+    return view('pages.profile.sekolah');
+});
+Route::resource('/profile/guru', TeacherController::class)->names('profile-guru');
+Route::resource('/profile/siswa', StudentController::class)->names('profile-siswa');
+
 
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
@@ -57,12 +63,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Route::put('/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
     // Route::delete('/{id}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
 
-
-    Route::resource('/profil/guru', TeacherController::class)->names('profil-guru');
-    Route::get('/profil/sekolah', function () {
-        return view('dashboard');
-    });
-    Route::resource('/profil/siswa', StudentController::class)->names('profil-siswa');
+   
 
 
     

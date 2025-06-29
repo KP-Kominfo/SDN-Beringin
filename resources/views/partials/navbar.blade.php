@@ -97,11 +97,11 @@
                         </button>
                         <div
                             class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 invisible group-hover:visible z-50">
-                            <a href="/profil-sekolah" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil
+                            <a href="/profile/sekolah" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil
                                 Sekolah</a>
-                            <a href="/profil-guru" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil
+                            <a href="/profile/sekolah" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil
                                 Guru</a>
-                            <a href="/profil-peserta-didik"
+                            <a href="/profile/peserta-didik"
                                 class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Profil Peserta Didik</a>
                         </div>
                     </div>
@@ -182,10 +182,10 @@
                         <details class="group">
                             <summary class="cursor-pointer hover:text-blue-600 font-medium">Profil</summary>
                             <ul class="pl-4 mt-2 space-y-2 text-sm">
-                                <li><a href="/profil-sekolah" class="block hover:text-blue-600">Profil Sekolah</a>
+                                <li><a href="/profil/sekolah" class="block hover:text-blue-600">Profil Sekolah</a>
                                 </li>
-                                <li><a href="/profil-guru" class="block hover:text-blue-600">Profil Guru</a></li>
-                                <li><a href="/profil-peserta-didik" class="block hover:text-blue-600">Profil Peserta
+                                <li><a href="/profil/guru" class="block hover:text-blue-600">Profil Guru</a></li>
+                                <li><a href="/profil/peserta-didik" class="block hover:text-blue-600">Profil Peserta
                                         Didik</a></li>
                             </ul>
                         </details>

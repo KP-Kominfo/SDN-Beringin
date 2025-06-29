@@ -15,12 +15,12 @@ return new class extends Migration
         $table->id();
         $table->string('judul');
         $table->text('konten');
-        $table->date('tanggal');
-        $table->string('kategori'); // "Hasil Seleksi", "Jadwal", dll
-        $table->string('tag')->nullable(); // "Penting", "Info", dll
-        $table->string('status')->nullable(); // "Resmi", "Baru", dll
+        $table->date('tanggal')->nullable(); 
+        $table->string('kategori'); 
+        $table->string('tag')->nullable();
+        $table->string('status')->nullable();
         $table->integer('jumlah_peserta')->nullable();
-        $table->string('icon')->nullable(); // opsional
+        $table->string('icon')->nullable(); 
         $table->timestamps();
     });
 
