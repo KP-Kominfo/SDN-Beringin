@@ -19,8 +19,8 @@ return new class extends Migration
         $table->string('kategori'); 
         $table->string('tag')->nullable();
         $table->string('status')->nullable();
-        $table->integer('jumlah_peserta')->nullable();
         $table->string('icon')->nullable(); 
+        $table->foreignId('admin_id')->constrained('users')->onDelete('cascade'); 
         $table->timestamps();
     });
 

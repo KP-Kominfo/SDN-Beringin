@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('admin_id')->constrained('users')->onDelete('cascade'); // relasi ke users
             $table->string('judul');
-            $table->string('kategori'); // kegiatan, fasilitas, prestasi, dll
+            $table->string('kategori')->nullable(); // kegiatan, fasilitas, prestasi, dll
             $table->string('foto');
             $table->date('tanggal');
             $table->timestamps();

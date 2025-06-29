@@ -25,59 +25,93 @@
                         @endif
                     </div>
 
-                    <form action="{{ route('admin.lomba.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <form action="{{ route('admin.lomba.store') }}" method="POST" enctype="multipart/form-data"
+                        class="space-y-6">
                         @csrf
 
                         <div class="grid grid-cols-1 gap-6">
                             <!-- Nama Lomba -->
                             <div>
-                                <label for="nama_lomba" class="block text-sm font-semibold text-gray-700 mb-2">Nama Lomba</label>
-                                <input type="text" id="nama_lomba" name="nama_lomba" value="{{ old('nama_lomba') }}" required
+                                <label for="nama_lomba" class="block text-sm font-semibold text-gray-700 mb-2">Nama
+                                    Lomba</label>
+                                <input type="text" id="nama_lomba" name="nama_lomba" value="{{ old('nama_lomba') }}"
+                                    required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition duration-300"
                                     placeholder="Masukkan nama lomba">
                             </div>
 
+                            {{-- Nama Peserta --}}
+                            <div>
+                                <label for="nama_peserta" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Nama Peserta
+                                </label>
+                              
+                              @for ($i = 0; $i < 5; $i++)
+                                <input type="text" name="nama_peserta[]"
+                                       value="{{ old('nama_peserta.' . $i, $peserta[$i] ?? '') }}"
+                                       class="w-full px-4 py-2 mb-2 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition"
+                                       placeholder="Nama Peserta {{ $i + 1 }}">
+                              @endfor
+                            </div>
+
+
                             <!-- Kategori -->
                             <div>
-                                <label for="kategori" class="block text-sm font-semibold text-gray-700 mb-2">Kategori</label>
+                                <label for="kategori"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">Kategori</label>
                                 <select id="kategori" name="kategori" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition">
                                     <option value="">-- Pilih Kategori --</option>
-                                    <option value="mapsi">MAPSI</option>
-                                    <option value="literasi">Literasi</option>
-                                    <option value="fls2n">FLS2N</option>
-                                    <option value="bahasa-jawa">Bahasa Jawa</option>
-                                    <option value="berprestasi">Siswa Berprestasi</option>
-                                    <option value="motivasi-inspiratif">Motivasi & Inspiratif</option>
+                                    <option value="mapsi" {{ old('kategori') == 'mapsi' ? 'selected' : '' }}>MAPSI
+                                    </option>
+                                    <option value="literasi" {{ old('kategori') == 'literasi' ? 'selected' : '' }}>
+                                        Literasi</option>
+                                    <option value="fls2n" {{ old('kategori') == 'fls2n' ? 'selected' : '' }}>FLS2N
+                                    </option>
+                                    <option value="bahasa-jawa"
+                                        {{ old('kategori') == 'bahasa-jawa' ? 'selected' : '' }}>Bahasa Jawa</option>
+                                    <option value="berprestasi"
+                                        {{ old('kategori') == 'berprestasi' ? 'selected' : '' }}>Siswa Berprestasi
+                                    </option>
+                                    <option value="motivasi-inspiratif"
+                                        {{ old('kategori') == 'motivasi-inspiratif' ? 'selected' : '' }}>Motivasi &
+                                        Inspiratif</option>
                                 </select>
                             </div>
 
                             <!-- Tingkat -->
                             <div>
-                                <label for="tingkat" class="block text-sm font-semibold text-gray-700 mb-2">Tingkat</label>
-                                <input type="text" id="tingkat" name="tingkat" value="{{ old('tingkat') }}" required
+                                <label for="tingkat"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">Tingkat</label>
+                                <input type="text" id="tingkat" name="tingkat" value="{{ old('tingkat') }}"
+                                    required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
                                     placeholder="Contoh: Tingkat Kota, Provinsi, Nasional">
                             </div>
 
                             <!-- Prestasi -->
                             <div>
-                                <label for="prestasi" class="block text-sm font-semibold text-gray-700 mb-2">Prestasi</label>
-                                <input type="text" id="prestasi" name="prestasi" value="{{ old('prestasi') }}" required
+                                <label for="prestasi"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">Prestasi</label>
+                                <input type="text" id="prestasi" name="prestasi" value="{{ old('prestasi') }}"
+                                    required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
                                     placeholder="Contoh: Juara 1, Finalis, dll">
                             </div>
 
                             <!-- Tanggal -->
                             <div>
-                                <label for="tanggal" class="block text-sm font-semibold text-gray-700 mb-2">Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required
+                                <label for="tanggal"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">Tanggal</label>
+                                <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal') }}"
+                                    required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition">
                             </div>
 
                             <!-- Deskripsi -->
                             <div>
-                                <label for="deskripsi" class="block text-sm font-semibold text-gray-700 mb-2">Deskripsi</label>
+                                <label for="deskripsi"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">Deskripsi</label>
                                 <textarea id="deskripsi" name="deskripsi" rows="5" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 resize-y transition"
                                     placeholder="Tulis deskripsi kegiatan lomba...">{{ old('deskripsi') }}</textarea>
@@ -85,9 +119,11 @@
 
                             <!-- Gambar -->
                             <div>
-                                <label for="gambar" class="block text-sm font-semibold text-gray-700 mb-2">Gambar Lomba</label>
+                                <label for="gambar" class="block text-sm font-semibold text-gray-700 mb-2">Gambar
+                                    Lomba</label>
                                 <input type="file" id="gambar" name="gambar" accept="image/*"
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+                                    old="{{ old('gambar') }}">
                                 <p class="text-sm text-gray-500 mt-1">Ukuran maks: 2MB. Format: JPG, PNG.</p>
                             </div>
                         </div>
@@ -114,7 +150,8 @@
                     </div>
                     <div class="ml-3">
                         <p class="text-sm text-blue-700">
-                            <strong>Catatan:</strong> Pastikan semua data yang dimasukkan sudah benar dan gambar memiliki format yang didukung (JPG, PNG) serta ukuran maksimal 2MB.
+                            <strong>Catatan:</strong> Pastikan semua data yang dimasukkan sudah benar dan gambar
+                            memiliki format yang didukung (JPG, PNG) serta ukuran maksimal 2MB.
                         </p>
                     </div>
                 </div>

@@ -8,8 +8,10 @@ class Galeri extends Model
 {
     protected $fillable = [
         'judul',
-        'deskripsi',
-        'gambar',
+        'kategori',
+        'foto',
+        'tanggal',
+        'admin_id', 
     ];
 
     public function admin()

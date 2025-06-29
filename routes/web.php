@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BeritaUserController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\GaleriUserController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\LombaUserController;
@@ -21,7 +23,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::get('/pengaduan', [PengaduanController::class, 'create'])->name('pengaduan.form');
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
-Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
+Route::get('/galeri', [GaleriUserController::class, 'index'])->name('galeri.index');
 Route::get('/berita', [BeritaUserController::class, 'index'])->name('berita.index');
 Route::get('/berita/{berita}', [BeritaUserController::class, 'show'])->name('berita.detail.show');
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
@@ -45,9 +47,8 @@ Route::get('/profile/guru', [TeacherUserController::class, 'index'])->name('prof
 
 // ADMIN
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth', 'verified', 'role:admin'])->name('admin.dashboard');
+    
+    Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin.dashboard.index');
 
 
     Route::get('/berita', [BeritaController::class, 'index'])->name('admin.berita.index');
@@ -71,6 +72,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/guru/{id}/edit', [TeacherController::class, 'edit'])->name('admin.guru.edit');
     Route::put('/guru/{id}', [TeacherController::class, 'update'])->name('admin.guru.update');
     Route::delete('/guru/{id}', [TeacherController::class, 'destroy'])->name('admin.guru.destroy');
+
+    Route::get('/galeri', [GaleriController::class, 'index'])->name('admin.galeri.index');
+    Route::get('/galeri/create', [GaleriController::class, 'create'])->name('admin.galeri.create');
+    Route::post('/galeri', [GaleriController::class, 'store'])->name('admin.galeri.store');
+    Route::get('/galeri/{id}/edit', [GaleriController::class, 'edit'])->name('admin.galeri.edit');
+    Route::put('/galeri/{id}', [GaleriController::class, 'update'])->name('admin.galeri.update');
+    Route::delete('/galeri/{id}', [GaleriController::class, 'destroy'])->name('admin.galeri.destroy');
+
+    Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('admin.pengaduan.index');
+    Route::delete('/pengaduan/{id}', [PengaduanController::class, 'destroy'])->name('admin.pengaduan.destroy');
 });
 
 Route::middleware('auth')->group(function () {

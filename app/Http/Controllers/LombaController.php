@@ -31,29 +31,51 @@ class LombaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_lomba' => 'required|string|max:255',
-            'kategori' => 'required|string|max:255',
-            'tingkat' => 'required|string|max:255',
-            'prestasi' => 'nullable|string|max:255',
+
+        $request->merge([
+            'nama_peserta' => array_filter($request->input('nama_peserta'), function ($value) {
+                return trim($value) !== '';
+            })
+        ]);
+
+         $validated = $request->validate([
+            'nama_lomba' => 'required|string',
+            'tingkat' => 'required|string',
+            'prestasi' => 'required|string',
             'tanggal' => 'required|date',
-            'deskripsi' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|max:2048',
+            'kategori' => 'required|string',
+            'nama_peserta' => 'required|array|min:1',
         ]);
+    
+        // Bersihkan nama peserta dan simpan dalam format JSON
+        // $validated['nama_peserta'] = json_encode(array_filter($validated['nama_peserta']));
+    
+        // Upload gambar jika ada
+        if ($request->hasFile('gambar')) {
+            $validated['gambar'] = $request->file('gambar')->store('lomba', 'public');
+        }
+    
+        // Tambahkan ID admin ke dalam data yang akan disimpan
+        $validated['admin_id'] = Auth::id();
 
+        // Simpan ke database
         Lomba::create([
-            'admin_id' => Auth::user()->id,
-            'nama_lomba' => $request->nama_lomba,
-            'kategori' => $request->kategori,
-            'tingkat' => $request->tingkat,
-            'prestasi' => $request->prestasi,
-            'tanggal' => $request->tanggal,
-            'deskripsi' => $request->deskripsi,
-            'gambar' => $request->file('gambar') ? $request->file('gambar')->store('lomba', 'public') : null,
+            'admin_id' => Auth::id(),
+            'nama_lomba' => $validated['nama_lomba'],
+            'tingkat' => $validated['tingkat'],
+            'prestasi' => $validated['prestasi'],
+            'tanggal' => $validated['tanggal'],
+            'deskripsi' => $validated['deskripsi'],
+            'gambar' => $validated['gambar'] ?? null,
+            'kategori' => $validated['kategori'],
+            'nama_peserta' => $validated['nama_peserta'], 
         ]);
 
-        return redirect()->route('admin.lomba.index')->with('success', 'Lomba created successfully.');
+        return redirect()->route('admin.lomba.index')->with('success', 'Data berhasil disimpan.');
     }
+    
 
     /**
      * Display the specified resource.
@@ -77,6 +99,13 @@ class LombaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        $request->merge([
+            'nama_peserta' => array_filter($request->input('nama_peserta'), function ($value) {
+                return trim($value) !== '';
+            })
+        ]);
+
         // Validasi input
         $request->validate([
             'nama_lomba' => 'required|string|max:255',
@@ -86,6 +115,7 @@ class LombaController extends Controller
             'tanggal' => 'required|date',
             'deskripsi' => 'required|string',
             'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // max 2MB
+            'nama_peserta' => 'required|array|min:1',
         ]);
 
         // Ambil data lomba berdasarkan ID
@@ -99,6 +129,7 @@ class LombaController extends Controller
             'prestasi',
             'tanggal',
             'deskripsi',
+            'nama_peserta',
         ]);
 
         // Handle upload gambar jika ada

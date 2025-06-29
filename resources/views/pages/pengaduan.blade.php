@@ -37,8 +37,8 @@
                 </div>
 
                 <div>
-                    <label for="deskripsi" class="block mb-2 text-sm font-semibold text-gray-700">Deskripsi</label>
-                    <textarea name="deskripsi" id="deskripsi" rows="5" placeholder="Tuliskan deskripsi pengaduan Anda"
+                    <label for="pesan" class="block mb-2 text-sm font-semibold text-gray-700">Pesan</label>
+                    <textarea name="pesan" id="pesan" rows="5" placeholder="Tuliskan pesan pengaduan Anda"
                         class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
                 </div>
 

@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    <x-nav-link :href="route('admin.dashboard.index')" :active="request()->routeIs('admin.dashboard.index')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
@@ -29,6 +29,16 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('admin.guru.index')" :active="request()->routeIs('admin.guru.index')">
                         {{ __('Guru') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.galeri.index')" :active="request()->routeIs('admin.galeri.index')">
+                        {{ __('Galeri') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.pengaduan.index')" :active="request()->routeIs('admin.pengaduan.index')">
+                        {{ __('Pengaduan') }}
                     </x-nav-link>
                 </div>
             </div>

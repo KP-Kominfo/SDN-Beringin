@@ -15,9 +15,10 @@ class Lomba extends Model
         'tanggal',
         'deskripsi',
         'gambar',
+        'nama_peserta',
     ];
-
     protected $casts = [
+        'nama_peserta' => 'array',
         'tanggal' => 'date',
     ];
     

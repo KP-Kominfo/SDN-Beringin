@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('deskripsi')->nullable();
             $table->string('gambar')->nullable(); // untuk menyimpan gambar lomba jika ada
             $table->string('kategori');
+            $table->json('nama_peserta'); 
             $table->timestamps();
         });
     }

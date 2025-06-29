@@ -64,7 +64,7 @@
 
 
             @if (Auth::check())
-                <a href={{ route('admin.dashboard') }}>{{ Auth::user()->name }}</a>
+                <a href={{ route('admin.dashboard.index') }}>{{ Auth::user()->name }}</a>
             @else
                 <a href={{ route('login') }}
                     class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-sm hover:shadow-md font-medium">
@@ -157,9 +157,6 @@
         </div>
 
 
-        {{-- MOBILE --}}
-
-        {{-- Overlay backdrop --}}
 
         {{-- Mobile Sidebar --}}
         <div id="mobile-sidebar"
@@ -215,7 +212,7 @@
                     <li><a href="{{ route('kontak') }}" class="block hover:text-blue-600 font-medium">Kontak</a></li>
 
                     @auth
-                        <li class="mt-4 border-t border-gray-200 pt-4"><a href="{{ route('admin.dashboard') }}"
+                        <li class="mt-4 border-t border-gray-200 pt-4"><a href="{{ route('admin.dashboard.index') }}"
                                 class="block text-blue-600 font-semibold">{{ Auth::user()->name }}</a></li>
                     @else
                         <li class="mt-4 border-t border-gray-200 pt-4">

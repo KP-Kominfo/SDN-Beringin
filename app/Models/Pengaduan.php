@@ -13,6 +13,6 @@ class Pengaduan extends Model
         'nama',
         'email',
         'telepon',
-        'deskripsi',
+        'pesan',
     ];
 }

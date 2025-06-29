@@ -33,6 +33,7 @@
                     <th class="px-4 py-2">Tingkat</th>
                     <th class="px-4 py-2">Prestasi</th>
                     <th class="px-4 py-2">Tanggal</th>
+                    <th class="px-4 py-2">Peserta</th>
                     <th class="px-4 py-2">Foto</th>
                     <th class="px-4 py-2">Aksi</th>
                   </tr>
@@ -46,6 +47,17 @@
                       <td class="px-4 py-2">{{ $lomba->tingkat }}</td>
                       <td class="px-4 py-2">{{ $lomba->prestasi }}</td>
                       <td class="px-4 py-2">{{ \Carbon\Carbon::parse($lomba->tanggal)->format('d M Y') }}</td>
+                      <td class="px-4 py-2">
+                        @if (is_array($lomba->nama_peserta))
+                            <ul class="list-disc list-inside space-y-1">
+                                @foreach ($lomba->nama_peserta as $peserta)
+                                    <li>{{ $peserta }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            {{ $lomba->nama_peserta }}
+                        @endif
+                      </td>
                       <td class="px-4 py-2">
                         @if ($lomba->gambar)
                             <img src="{{ asset('storage/' . $lomba->gambar) }}" alt="{{ $lomba->judul }}" class="w-16 h-16 object-cover rounded">

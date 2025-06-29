@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Lomba::class, 'admin_id');
     }
+
+    public function pengumumans()
+    {
+        return $this->hasMany(Pengumuman::class, 'admin_id');
+    }
 }
