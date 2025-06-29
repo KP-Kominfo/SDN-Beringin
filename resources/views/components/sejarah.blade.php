@@ -41,11 +41,19 @@
       
         <!-- Box Informasi Visual -->
         <div class="flex gap-4">
-          <div class="bg-gray-200 rounded-md h-[100px] w-1/2 flex items-center justify-center text-gray-600 shadow-sm">
-        
+          <div class="bg-gray-200 rounded-md overflow-hidden h-[100px] w-1/2 flex items-center justify-center text-gray-600 shadow-sm">
+            <img
+            src="{{ asset('images/profile sekolah/sejarah3.webp') }}"
+            alt="Foto Sekolah"
+            class="w-full h-full object-cover object-center"
+          />
           </div>
-          <div class="bg-gray-200 rounded-md h-[100px] w-1/2 flex items-center justify-center text-gray-600 shadow-sm">
-
+          <div class="bg-gray-200 overflow-hidden rounded-md h-[100px] w-1/2 flex items-center justify-center text-gray-600 shadow-sm">
+            <img
+            src="{{ asset('images/profile sekolah/sejarah4.jpg') }}"
+            alt="Foto Sekolah"
+            class="w-full h-full object-cover object-center"
+          />
           </div>
         </div>
       

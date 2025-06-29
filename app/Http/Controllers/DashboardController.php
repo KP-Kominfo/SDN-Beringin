@@ -14,14 +14,21 @@ class DashboardController extends Controller
                 'alt' => 'Slide 1',
                 'title' => 'Selamat Datang di SDN Bringin 01',
                 'desc' => 'Mewujudkan generasi cerdas, kreatif, dan berkarakter.',
-                'cta' => ['href' => '/profil', 'text' => 'Lihat Profil Sekolah']
+                'cta' => ['href' => '/profil/sekolah', 'text' => 'Lihat Profil Sekolah']
             ],
             [
                 'image' => 'images/image2.jpg',
                 'alt' => 'Slide 2',
                 'title' => 'Pendidikan Berkualitas',
                 'desc' => 'Fasilitas dan guru yang kompeten mendukung pembelajaran.',
-                'cta' => ['href' => '/fasilitas', 'text' => 'Lihat Fasilitas']
+                'cta' => ['href' => '/profil/sekolah', 'text' => 'Lihat Profil Sekolah']
+            ],
+            [
+                'image' => 'images/image3.jpg',
+                'alt' => 'Slide 3',
+                'title' => 'Nilai-Nilai Karakter',
+                'desc' => 'Menumbuhkan kedisiplinan, gotong royong, dan semangat kekeluargaan.',
+                'cta' => ['href' => '/profil/sekolah', 'text' => 'Lihat Profil Sekolah']
             ],
         ];
 
