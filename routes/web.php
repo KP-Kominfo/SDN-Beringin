@@ -34,7 +34,6 @@ Route::get('/profile/sekolah', function () {
     return view('pages.profile.sekolah');
 });
 Route::resource('/profile/guru', TeacherController::class)->names('profile-guru');
-Route::resource('/profile/siswa', StudentController::class)->names('profile-siswa');
 
 
 
@@ -57,7 +56,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/lomba', [LombaController::class, 'store'])->name('admin.lomba.store');
     Route::get('/lomba/{lomba}/edit', [LombaController::class, 'edit'])->name('admin.lomba.edit');
     Route::put('/lomba/{id}', [LombaController::class, 'update'])->name('admin.lomba.update');
-    Route::delete('/lomba/{lomba}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');  
+    Route::delete('/lomba/{lomba}', [LombaController::class, 'destroy'])->name('admin.lomba.destroy');
+
+    Route::get('/guru', [TeacherController::class, 'index'])->name('admin.guru.index');
+    Route::get('/guru/create', [TeacherController::class, 'create'])->name('admin.guru.create');
+    Route::post('/guru', [TeacherController::class, 'store'])->name('admin.guru.store');
+    Route::get('/guru/{id}/edit', [TeacherController::class, 'edit'])->name('admin.guru.edit');
+    Route::put('/guru/{id}', [TeacherController::class, 'update'])->name('admin.guru.update');
+    Route::delete('/guru/{id}', [TeacherController::class, 'destroy'])->name('admin.guru.destroy');
 });
 
 Route::middleware('auth')->group(function () {
