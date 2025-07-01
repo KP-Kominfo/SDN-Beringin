@@ -25,83 +25,52 @@
                         @endif
                     </div>
 
-                    <form action="{{ route('admin.lomba.update', $lomba->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <form action="{{ route('admin.berita.update', $berita->id) }}" method="POST"
+                        enctype="multipart/form-data" class="space-y-6">
                         @csrf
                         @method('PUT')
 
                         <div class="grid grid-cols-1 gap-6">
-                            <!-- Nama Lomba -->
+                            <!-- Judul -->
                             <div>
-                                <label for="nama_lomba" class="block text-sm font-semibold text-gray-700 mb-2">Nama Lomba</label>
-                                <input type="text" id="nama_lomba" name="nama_lomba" value="{{ old('nama_lomba', $lomba->nama_lomba) }}" required
+                                <label for="judul" class="block text-sm font-semibold text-gray-700 mb-2">Judul
+                                    Berita</label>
+                                <input type="text" id="judul" name="judul" value="{{ old('judul', $berita->judul) }}"
+                                    required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
-                                    placeholder="Masukkan nama lomba">
+                                    placeholder="Masukkan judul berita">
                             </div>
 
-                            <!-- Kategori -->
+                            <!-- Konten -->
                             <div>
-                                <label for="kategori" class="block text-sm font-semibold text-gray-700 mb-2">Kategori</label>
-                                <select id="kategori" name="kategori" required
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition">
-                                    <option value="">-- Pilih Kategori --</option>
-                                    <option value="mapsi" {{ $lomba->kategori == 'mapsi' ? 'selected' : '' }}>MAPSI</option>
-                                    <option value="literasi" {{ $lomba->kategori == 'literasi' ? 'selected' : '' }}>Literasi</option>
-                                    <option value="fls2n" {{ $lomba->kategori == 'fls2n' ? 'selected' : '' }}>FLS2N</option>
-                                    <option value="bahasa-jawa" {{ $lomba->kategori == 'bahasa-jawa' ? 'selected' : '' }}>Bahasa Jawa</option>
-                                    <option value="berprestasi" {{ $lomba->kategori == 'berprestasi' ? 'selected' : '' }}>Siswa Berprestasi</option>
-                                    <option value="motivasi-inspiratif" {{ $lomba->kategori == 'motivasi-inspiratif' ? 'selected' : '' }}>Motivasi & Inspiratif</option>
-                                </select>
-                            </div>
-
-                            <!-- Tingkat -->
-                            <div>
-                                <label for="tingkat" class="block text-sm font-semibold text-gray-700 mb-2">Tingkat</label>
-                                <input type="text" id="tingkat" name="tingkat" value="{{ old('tingkat', $lomba->tingkat) }}" required
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
-                                    placeholder="Contoh: Kota, Provinsi, Nasional">
-                            </div>
-
-                            <!-- Prestasi -->
-                            <div>
-                                <label for="prestasi" class="block text-sm font-semibold text-gray-700 mb-2">Prestasi</label>
-                                <input type="text" id="prestasi" name="prestasi" value="{{ old('prestasi', $lomba->prestasi) }}" required
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition"
-                                    placeholder="Contoh: Juara 1">
-                            </div>
-
-                            <!-- Tanggal -->
-                            <div>
-                                <label for="tanggal" class="block text-sm font-semibold text-gray-700 mb-2">Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" value="{{ old('tanggal', $lomba->tanggal ? $lomba->tanggal->format('Y-m-d') : '') }}" required
-                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 transition">
-                            </div>
-
-                            <!-- Deskripsi -->
-                            <div>
-                                <label for="deskripsi" class="block text-sm font-semibold text-gray-700 mb-2">Deskripsi</label>
-                                <textarea id="deskripsi" name="deskripsi" rows="5" required
+                                <label for="konten"
+                                    class="block text-sm font-semibold text-gray-700 mb-2">Konten</label>
+                                <textarea id="konten" name="konten" rows="5" required
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 focus:border-blue-500 resize-y transition"
-                                    placeholder="Tulis deskripsi lomba">{{ old('deskripsi', $lomba->deskripsi) }}</textarea>
+                                    placeholder="Tulis isi berita">{{ old('konten', $berita->konten) }}</textarea>
                             </div>
 
-                            <!-- Gambar -->
+                            <!-- Foto -->
                             <div>
-                                <label for="gambar" class="block text-sm font-semibold text-gray-700 mb-2">Gambar Lomba</label>
-                                @if ($lomba->gambar)
+                                <label for="foto" class="block text-sm font-semibold text-gray-700 mb-2">Foto
+                                    Berita</label>
+                                @if ($berita->foto)
                                     <div class="mb-3">
-                                        <p class="text-sm text-gray-600">Gambar Saat Ini:</p>
-                                        <img src="{{ asset('storage/' . $lomba->gambar) }}" alt="Gambar Lomba" class="w-48 h-auto rounded-lg shadow-md mt-2">
+                                        <p class="text-sm text-gray-600">Foto Saat Ini:</p>
+                                        <img src="{{ asset('storage/' . $berita->foto) }}" alt="Foto Berita"
+                                            class="w-48 h-auto rounded-lg shadow-md mt-2">
                                     </div>
                                 @endif
-                                <input type="file" id="gambar" name="gambar" accept="image/*"
+                                <input type="file" id="foto" name="foto" accept="image/*"
                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-blue-100 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
-                                <p class="text-sm text-gray-500 mt-1">Biarkan kosong jika tidak ingin mengganti gambar.</p>
+                                <p class="text-sm text-gray-500 mt-1">Biarkan kosong jika tidak ingin mengganti foto.
+                                </p>
                             </div>
                         </div>
 
                         <!-- Tombol -->
                         <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
-                            <a href="{{ route('admin.lomba.index') }}"
+                            <a href="{{ route('admin.berita.index') }}"
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-xl text-center">
                                 <i class="fas fa-arrow-left mr-1"></i> Batal
                             </a>
@@ -111,6 +80,7 @@
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
 

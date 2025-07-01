@@ -17,7 +17,7 @@ class TeacherSeeder extends Seeder
             'kelas' => null,
             'mapel' => null,
             'kategori' => 'kepsek',
-            'foto' => 'guru/Muh Hasan Rifai, S.Pd KepSek.jpeg',
+            'foto' => 'guru/1.jpeg',
         ]);
 
         Teacher::create([
@@ -25,7 +25,7 @@ class TeacherSeeder extends Seeder
             'kelas' => 'V',
             'mapel' => 'Wali Kelas',
             'kategori' => 'Guru',
-            'foto' => 'guru/Desy Indar Kusumastuti, S.Pd Guru Kelas V.png',
+            'foto' => 'guru/2.png',
         ]);
 
         Teacher::create([
@@ -33,7 +33,7 @@ class TeacherSeeder extends Seeder
             'kelas' => 'VI',
             'mapel' => 'Wali Kelas',
             'kategori' => 'Guru',
-            'foto' => 'guru/Ester Eny Puspitawati, S.Pd Guru Kelas VI.png',
+            'foto' => 'guru/3.png',
         ]);
 
         Teacher::create([
@@ -41,7 +41,7 @@ class TeacherSeeder extends Seeder
             'kelas' => null,
             'mapel' => null,
             'kategori' => 'Staff',
-            'foto' => 'guru/Ika Yuliawati  A.Md. Pegawai Administrasi.png',
+            'foto' => 'guru/4.png',
         ]);
 
         Teacher::create([
@@ -49,7 +49,7 @@ class TeacherSeeder extends Seeder
             'kelas' => null,
             'mapel' => 'PAI',
             'kategori' => 'Guru',
-            'foto' => 'guru/Mustofa, S.Pd Guru PAI.png',
+            'foto' => 'guru/5.png',
         ]);
 
         Teacher::create([
@@ -57,7 +57,7 @@ class TeacherSeeder extends Seeder
             'kelas' => 'IV',
             'mapel' => 'Wali Kelas',
             'kategori' => 'Guru',
-            'foto' => 'guru/Paryono, S.Pd Guru Kelas IV.png',
+            'foto' => 'guru/6.png',
         ]);
 
         Teacher::create([
@@ -65,7 +65,7 @@ class TeacherSeeder extends Seeder
             'kelas' => null,
             'mapel' => 'PJOK',
             'kategori' => 'Guru',
-            'foto' => 'guru/Puryanto, A.Ma.Pd Guru PJOK.png',
+            'foto' => 'guru/7.png',
         ]);
 
         Teacher::create([
@@ -73,7 +73,7 @@ class TeacherSeeder extends Seeder
             'kelas' => 'II',
             'mapel' => 'Wali Kelas',
             'kategori' => 'Guru',
-            'foto' => 'guru/Rahmad Suryo Atmojo, S.Pd Guru Kelas ll.png',
+            'foto' => 'guru/8.png',
         ]);
 
         Teacher::create([
@@ -81,7 +81,7 @@ class TeacherSeeder extends Seeder
             'kelas' => 'I',
             'mapel' => 'Wali Kelas',
             'kategori' => 'Guru',
-            'foto' => 'guru/Sri Hastutik, S.Pd Guru Kelas l.png',
+            'foto' => 'guru/9.png',
         ]);
 
         Teacher::create([
@@ -89,7 +89,7 @@ class TeacherSeeder extends Seeder
             'kelas' => 'III',
             'mapel' => 'Wali Kelas',
             'kategori' => 'Guru',
-            'foto' => 'guru/Sri Utami, S.Pd Guru Kelas III.png',
+            'foto' => 'guru/10.png',
         ]);
 
         Teacher::create([
@@ -97,7 +97,7 @@ class TeacherSeeder extends Seeder
             'kelas' => null,
             'mapel' => null,
             'kategori' => 'Staff',
-            'foto' => 'guru/Djoni Chrissensia Pegawai Keamanan.png',
+            'foto' => 'guru/11.png',
         ]);
     }
 }

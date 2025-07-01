@@ -16,7 +16,7 @@ class BeritaSeeder extends Seeder
     {
         Berita::create([
             'judul' => 'Selamat dan Sukses Atas Dilantinya Hevearita G. Rahayu (Mbak Ita) Sebagai Pelantikan Wali Kota Semarang Tahun 2021-2026',
-            'foto' => 'berita/1.jpg',
+            'foto' => 'berita/7.jpg',
             'konten' => 'DN Bringin 01 Mengucapkan Selamat dan Sukses atas dilantiknya Hevearita G. Rahayu sebagai Wali Kota Semarang periode 2021-2026.',
             'admin_id' => 1,
         ]);

@@ -14,7 +14,7 @@ class DashboardAdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard',
+        return view('admin.dashboard.index',
             [
                 'galeriCount' => Galeri::count(),
                 'teacherCount' => Teacher::count(),
