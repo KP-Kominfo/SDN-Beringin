@@ -16,7 +16,7 @@ class GaleriSeeder extends Seeder
         Galeri::create([
             'judul' => 'SPMB KOTA SEMARANG TAHUN 2025/2026',
             'kategori' => 'Pendaftaran',
-            'foto' => 'galeri/10.jpeg',
+            'foto' => 'galeri/5.jpg',
             'tanggal' => '2025-01-15',
             'admin_id' => 1
         ]);
@@ -72,7 +72,7 @@ class GaleriSeeder extends Seeder
         Galeri::create([
             'judul' => 'Selamat Hari Raya Waisak 2565 BE',
             'kategori' => 'peringatan',
-            'foto' => 'galeri/6.jpg',
+            'foto' => 'galeri/9.jpg',
             'tanggal' => '2025-03-05',
             'admin_id' => 1
         ]);
